@@ -7,12 +7,12 @@ void Buzzer::init() {
     digitalWrite(_pin, HIGH);
 }
 
-void Buzzer::start() {
+void Buzzer::start(unsigned int frequency) {
     if (!_isActive) {
         if (_silentMode) {
             Serial.println("BUZZER: ON (Silent Mode)");
         } else {
-            tone(_pin, 1000);
+            tone(_pin, frequency);
         }
         _isActive = true;
     }

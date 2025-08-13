@@ -11,6 +11,7 @@ void SleepManager::init() {
     power.setSleepMode(POWERDOWN_SLEEP);
     power.setSleepResolution(SLEEP_1024MS);
     delaySleep();
+    pinMode(wakeupInterruptPin, INPUT);
 }
 
 void SleepManager::delaySleep() {

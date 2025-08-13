@@ -1,14 +1,14 @@
 #pragma once
 
 #include <Arduino.h>
-#include <DHT.h>
+#include <DHT11.h>
 
 class DHT11Sensor {
    private:
-    DHT dht;
+    DHT11 dht;
     uint8_t pin;
-    float temperature;
-    float humidity;
+    int temperature = 0;
+    int humidity = 0;
 
    public:
     DHT11Sensor(uint8_t pin);

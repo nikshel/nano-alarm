@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
@@ -15,18 +17,23 @@ class LCDDisplay {
     void init();
     void turnOn();
     void turnOff();
-    void print(const char* text, uint8_t row = 0);
+    // void print(const char* text, uint8_t row = 0);
+    // void print(const String& text, uint8_t row = 0);
+
+    template <typename T>
+    void print(const T& text, uint8_t row = 0) {
+        lcd.setCursor(0, row);
+        lcd.print(text);
+    }
+
     void clear();
 
     template <typename... Args>
-    void printf(uint8_t row, const char* format, Args... args) {
-        char buffer[LCD_WIDTH + 1];
-        snprintf(buffer, LCD_WIDTH + 1, format, args...);
+    void printf(uint8_t row, const __FlashStringHelper* format, Args... args) {
         lcd.setCursor(0, row);
-        lcd.print(buffer);
+        lcd.printf(format, args...);
 
-        // Заполняем оставшиеся символы пробелами
-        for (uint8_t i = strlen(buffer); i < LCD_WIDTH; i++) {
+        for (uint8_t i = 0; i < LCD_WIDTH; i++) {
             lcd.write(' ');
         }
     }
