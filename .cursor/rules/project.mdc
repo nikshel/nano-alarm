@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+This project is:
+- Arduino project, written in CPP using Arduino framework
+- Running at Arduino Nano
+- Using PlatformIO

@@ -1,14 +1,16 @@
 #include "DHT11Sensor.h"
 
-DHT11Sensor::DHT11Sensor(uint8_t pin) : dht(pin) {
+DHT11Sensor::DHT11Sensor(uint8_t pin) : dht(pin, DHT11) {
     this->pin = pin;
-    dht.setDelay(0);
 }
 
-void DHT11Sensor::init() {}
+void DHT11Sensor::init() {
+    dht.begin();
+}
 
 void DHT11Sensor::update() {
-    dht.readTemperatureHumidity(temperature, humidity);
+    temperature = dht.readTemperature();
+    humidity = dht.readHumidity();
 }
 
 float DHT11Sensor::getTemperature() { return temperature; }

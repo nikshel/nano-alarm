@@ -1,0 +1,183 @@
+{
+    "version": 1,
+    "author": "nikshel",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "wokwi-arduino-nano",
+            "id": "nano",
+            "top": -168,
+            "left": -96.5,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-lcd1602",
+            "id": "lcd1",
+            "top": -185.6,
+            "left": 236,
+            "attrs": {
+                "pins": "i2c"
+            }
+        },
+        {
+            "type": "wokwi-ky-040",
+            "id": "encoder1",
+            "top": -27.1,
+            "left": -116,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-dht22",
+            "id": "dht1",
+            "top": -354.9,
+            "left": -82.2,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-pir-motion-sensor",
+            "id": "pir1",
+            "top": -341.6,
+            "left": 40.62,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-buzzer",
+            "id": "bz1",
+            "top": -362.4,
+            "left": 232.2,
+            "attrs": {
+                "volume": "0.1"
+            }
+        },
+        {
+            "type": "wokwi-rgb-led",
+            "id": "rgb1",
+            "top": -332,
+            "left": 337.1,
+            "attrs": {}
+        }
+    ],
+    "connections": [
+        [
+            "dht1:VCC",
+            "nano:5V",
+            "red",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "dht1:GND",
+            "nano:GND.1",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "dht1:SDA",
+            "nano:4",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "pir1:VCC",
+            "nano:5V",
+            "red",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "pir1:GND",
+            "nano:GND.1",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "pir1:OUT",
+            "nano:2",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "encoder1:VCC",
+            "nano:5V",
+            "red",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "encoder1:GND",
+            "nano:GND.1",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "encoder1:CLK",
+            "nano:A1",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "encoder1:DT",
+            "nano:A2",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "encoder1:SW",
+            "nano:A0",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "lcd1:VCC",
+            "nano:5V",
+            "red",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "lcd1:GND",
+            "nano:GND.1",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "lcd1:SDA",
+            "nano:A4",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "lcd1:SCL",
+            "nano:A5",
+            "green",
+            [
+                "h0"
+            ]
+        ]
+    ],
+    "dependencies": {}
+}
